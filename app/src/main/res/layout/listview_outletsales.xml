@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:elevation="5dp" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_main2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_outlet"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                tools:fontFamily="@font/roboto"
+                android:layout_alignBottom="@+id/textView7"
+                android:layout_toEndOf="@+id/textView7"
+                android:layout_toRightOf="@+id/textView7"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:text="Outlet :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                tools:fontFamily="@font/roboto"
+                android:textColor="#000000"
+                android:id="@+id/textView7"
+                android:layout_marginTop="10dp"/>
+
+
+
+            <TextView
+                android:text="Town :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                tools:fontFamily="@font/roboto"
+                android:layout_below="@+id/textView7"
+                android:id="@+id/textView88"
+                android:layout_marginTop="5dp"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_town"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                tools:fontFamily="@font/roboto"
+                android:layout_alignBottom="@+id/textView88"
+                android:layout_toEndOf="@+id/textView88"
+                android:layout_toRightOf="@+id/textView88"
+                android:layout_marginLeft="5dp"/>
+
+
+
+
+            <TextView
+                android:text="Total Sale :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                tools:fontFamily="@font/roboto"
+                android:layout_below="@+id/textView88"
+                android:id="@+id/textView8"
+                android:layout_marginTop="5dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_sale"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                tools:fontFamily="@font/roboto"
+                android:layout_alignBottom="@+id/textView8"
+                android:layout_toEndOf="@+id/textView8"
+                android:layout_toRightOf="@+id/textView8"
+                android:layout_marginLeft="5dp"/>
+
+
+            <TextView
+                android:text="Total Sales QTY :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                tools:fontFamily="@font/roboto"
+                android:layout_below="@+id/textView8"
+                android:id="@+id/textView9"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_qty"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                tools:fontFamily="@font/roboto"
+                android:layout_alignBottom="@+id/textView9"
+                android:layout_toEndOf="@+id/textView9"
+                android:layout_toRightOf="@+id/textView9"
+                android:layout_marginLeft="5dp"/>
+
+
+
+
+            <TextView
+                android:text="Your Total Commissions :"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                tools:fontFamily="@font/roboto"
+                android:layout_below="@+id/textView9"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/textView11"
+                android:layout_marginTop="5dp" />
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_commission"
+                android:textSize="16sp"
+                tools:fontFamily="@font/roboto"
+                android:textColor="#000000"
+                android:layout_alignBottom="@+id/textView11"
+                android:layout_toEndOf="@+id/textView11"
+                android:layout_toRightOf="@+id/textView11"
+
+                android:layout_marginLeft="5dp"/>
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
+
+

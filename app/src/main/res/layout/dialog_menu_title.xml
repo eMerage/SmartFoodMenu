@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="menutitlet"
+            type="emarge.project.smartfoodmenu.viewModels.MenuViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/relativelayoutdailogmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog_background">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Menu Title"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_alignLeft="@+id/spinner_menu_category"
+                android:layout_marginTop="18dp"
+                android:text="Select Menu Category"
+                android:textColor="#000"
+                android:textSize="16sp"
+                tools:fontFamily="@font/roboto" />
+
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:hint="OutletType"
+                android:onItemSelected="@{(parent, view, position, id) -> menutitlet.onItemSelectedMenuCategoryForMenuTitle(parent, view, position, id)}"
+                tools:fontFamily="@font/roboto"
+                android:entries="@array/menu_category_arr"
+                android:prompt="@string/menu_category_prompt"
+                android:layout_below="@+id/textView2"
+                android:id="@+id/spinner_menu_category"/>
+
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/spinner_menu_category"
+                android:layout_centerHorizontal="true"
+                android:text="@={menutitlet.editTextMenuTitle}"
+                tools:fontFamily="@font/roboto"
+                android:hint="Menu"
+                android:ems="10"
+                android:inputType="text"
+                />
+
+
+            <RelativeLayout android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/RelativeLayout1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/editText3">
+
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:srcCompat="@tools:sample/avatars[11]"
+                    android:layout_toEndOf="@+id/imageView2"
+                    android:layout_toRightOf="@+id/imageView2"
+                    android:id="@+id/imageView332"/>
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="55dp"
+                    android:onClick="onClickImageUploadMenuTitle"
+                    android:src="@drawable/ic_camera_alt_black_24dp" />
+
+            </RelativeLayout>
+
+
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:background="@drawable/bg_selector_primary"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                tools:fontFamily="@font/roboto"
+                android:textColor="#fff"
+                android:onClick="@{()->menutitlet.onAddMenuTitleClick()}"
+                android:layout_below="@+id/RelativeLayout1"
+                android:text="Add" />
+
+
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</layout>
+

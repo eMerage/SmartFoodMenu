@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">Smart Food Menu</string>
+    <string name="title_activity_maps">Smart Food Menu</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Smart Food Menu</string>
+    <string name="nav_header_subtitle">info@onmeal.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+      <string name="title_activity_outlet">New Outlet</string>
+
+    <string name="title_activity_menu_two">Menu Details</string>
+    <string name="title_activity_sale">Sales</string>
+
+
+    <!-- <string name="is_base_prompt">Choose Is Base</string>
+
+    <string-array name="is_base_arr">
+        <item>Is Base</item>
+        <item>Yes</item>
+        <item>No</item>
+
+    </string-array>
+-->
+
+    <string name="outlet_type_prompt">Choose Outlet Type</string>
+    <string-array name="outlet_type_arr">
+        <item>RE</item>
+    </string-array>
+
+
+    <string name="menu_category_prompt">Menu Category</string>
+    <string-array name="menu_category_arr">
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+        <item>Juice</item>
+        <item>Beverage</item>
+        <item>Dessert</item>
+        <item>Sweets</item>
+    </string-array>
+
+
+    <string name="food_item_type_prompt">Food Item Type</string>
+    <string-array name="food_item_type_arr">
+        <item>Plate</item>
+        <item>Extra</item>
+        <item>Portion</item>
+    </string-array>
+
+
+    <string name="food_item_size_prompt">Food Item Size</string>
+    <string-array name="food_item_size_arr">
+        <item>Normal</item>
+        <item>Small</item>
+        <item>Large</item>
+    </string-array>
+
+
+
+    <string name="outletdelivery_or_pickup_prompt">Delivery Or Pickup</string>
+    <string-array name="outletdelivery_or_pickup_arr">
+        <item>Delivery</item>
+        <item>Pick Up</item>
+        <item>Both</item>
+    </string-array>
+
+
+
+</resources>

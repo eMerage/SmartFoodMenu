@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="fooditemcat"
+            type="emarge.project.smartfoodmenu.viewModels.MenuTwoViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/relativelayoutdailogmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog_background">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Food Item Category"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+
+            <RelativeLayout
+                android:id="@+id/RelativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="25dp">
+
+                <RadioGroup
+                    android:id="@+id/radioGroup2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onCheckedChanged="@{fooditemcat.onNewfoodItemCategoryBaseTypeChanged}"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:fontFamily="@font/roboto"
+                        android:text="Base" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:text="Not Base"/>
+                </RadioGroup>
+
+            </RelativeLayout>
+
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/RelativeLayout"
+                android:layout_centerHorizontal="true"
+                tools:fontFamily="@font/roboto"
+                android:text="@={fooditemcat.editTextFoodItemCategory}"
+                android:hint="Food Item Category"
+                android:ems="10"
+                android:inputType="text" />
+
+
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/editText1"
+                android:layout_centerHorizontal="true"
+                tools:fontFamily="@font/roboto"
+                android:hint="Category Description"
+                android:text="@={fooditemcat.editTextFoodItemCategoryDescription}"
+                android:ems="10"
+                android:inputType="text" />
+
+
+            <RadioGroup
+                    android:id="@+id/radioGroup3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editText2"
+                    android:layout_centerHorizontal="true"
+                    android:onCheckedChanged="@{fooditemcat.onNewfoodItemCategoryCompulsoryTypeChanged}"
+                    android:orientation="horizontal">
+
+                <RadioButton
+                        android:id="@+id/radioButton6"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:layout_below="@+id/editText2"
+                        android:fontFamily="@font/roboto"
+                        android:text="Compulsory" />
+
+
+                <RadioButton
+                        android:id="@+id/radioButton7"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:layout_below="@+id/editText2"
+                        android:fontFamily="@font/roboto"
+                        android:text="Not Compulsory" />
+
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:background="@drawable/bg_selector_primary"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                tools:fontFamily="@font/roboto"
+                android:onClick="@{()->fooditemcat.onAddFoodItemCategory()}"
+                android:textColor="#fff"
+                android:layout_below="@+id/radioGroup3"
+                android:text="Add" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</layout>
+

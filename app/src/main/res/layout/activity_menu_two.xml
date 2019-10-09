@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="menutwo"
+                type="emarge.project.smartfoodmenu.viewModels.MenuTwoViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawer_layout_menu_two"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.activity.ActivityMenu">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/overview_coordinator_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar_menu_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="?attr/colorPrimaryDark" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+            <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    android:scrollbars="none"
+                    android:layout_marginTop="?attr/actionBarSize">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        <ProgressBar
+                                android:id="@+id/progressBar"
+                                style="?android:attr/progressBarStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:visibility="gone" />
+
+
+                        <RadioGroup
+                                android:id="@+id/radioGroup1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:onCheckedChanged="@{menutwo.onfoodItemCategoryBaseType}"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                            <RadioButton
+                                    android:id="@+id/radioButton1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="true"
+                                    android:fontFamily="@font/roboto"
+                                    android:text="Base" />
+
+                            <RadioButton
+                                    android:id="@+id/radioButton2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto"
+                                    android:text="Not Base" />
+                        </RadioGroup>
+
+                        <AutoCompleteTextView
+                                android:id="@+id/autoCompleteTextView_food_itemcat"
+                                android:hint="Food Item Category"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="5dp"
+                                android:completionThreshold="1"
+                                android:enabled="@{menutwo.foodItemCategoryEnable}"
+                                android:layout_below="@+id/radioGroup1"
+                                tools:fontFamily="@font/roboto" />
+
+
+                        <ImageView
+                                android:id="@+id/imageView1"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_below="@+id/radioGroup1"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:onClick="onClickFoodItemCatAdd"
+                                android:layout_toEndOf="@+id/autoCompleteTextView_food_itemcat"
+                                android:layout_toRightOf="@+id/autoCompleteTextView_food_itemcat"
+                                android:src="@drawable/ic_add" />
+
+                        <EditText
+                                android:id="@+id/editText_food_item"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/imageView1"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="5dp"
+                                android:text="@={menutwo.editTextFoodItem}"
+                                android:enabled="@{menutwo.foodItemEnable}"
+                                android:ems="10"
+                                android:hint="Food Item"
+                                android:inputType="text"
+                                tools:fontFamily="@font/roboto" />
+
+
+                        <EditText
+                                android:id="@+id/editText_food_title"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/editText_food_item"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="25dp"
+                                android:ems="10"
+                                android:hint="Food Title"
+                                android:enabled="@{menutwo.textFoodTitle}"
+                                android:text="@={menutwo.editTextFoodTitle}"
+                                android:inputType="text"
+                                tools:fontFamily="@font/roboto" />
+
+                        <EditText
+                                android:id="@+id/editText_food_description"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/editText_food_title"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="5dp"
+                                android:ems="10"
+                                android:enabled="@{menutwo.textFoodDescription}"
+                                android:text="@={menutwo.editTextFoodDescription}"
+                                android:hint="Food Description"
+                                android:inputType="text"
+                                tools:fontFamily="@font/roboto" />
+
+
+                        <RelativeLayout
+                                android:id="@+id/RelativeLayout1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="100dp"
+                                android:layout_below="@+id/editText_food_description"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="5dp">
+
+
+                            <ImageView
+                                    android:id="@+id/imageView3"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toEndOf="@+id/imageView2"
+                                    android:layout_toRightOf="@+id/imageView2"
+                                    tools:srcCompat="@tools:sample/avatars[11]" />
+
+                            <ImageView
+                                    android:id="@+id/imageView2"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="20dp"
+                                    android:enabled="@{menutwo.imageUpload}"
+                                    android:onClick="onClickImageUpload"
+                                    android:src="@drawable/ic_camera_alt_black_24dp" />
+
+                        </RelativeLayout>
+
+
+                        <TextView
+                                android:id="@+id/textView3"
+                                android:text="Select Food Item Type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/RelativeLayout1"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="10dp"
+                                android:textColor="#000"
+                                android:textSize="17sp"
+                                tools:fontFamily="@font/roboto_medium" />
+
+
+                        <Spinner
+                                android:id="@+id/spinner"
+                                android:layout_width="200dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="5dp"
+                                android:hint="Food Item Type"
+                                android:entries="@array/food_item_type_arr"
+                                android:prompt="@string/food_item_type_prompt"
+                                android:layout_below="@+id/textView3"
+                                android:onItemSelected="@{(parent, view, position, id) -> menutwo.onItemSelectedFoodItemType(parent, view, position, id)}" />
+
+
+                        <TextView
+                                android:id="@+id/textView4"
+                                android:text="Select Food Item Size"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/spinner"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="10dp"
+                                android:textColor="#000"
+                                android:textSize="17sp"
+                                tools:fontFamily="@font/roboto_medium" />
+
+
+                        <Spinner
+                                android:id="@+id/spinner2"
+                                android:layout_width="200dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="5dp"
+                                android:hint="Food Item Size"
+                                android:entries="@array/food_item_size_arr"
+                                android:prompt="@string/food_item_size_prompt"
+                                android:onItemSelected="@{(parent, view, position, id) -> menutwo.onItemSelectedFoodItemSize(parent, view, position, id)}"
+                                android:layout_below="@+id/textView4" />
+
+
+                        <EditText
+                                android:id="@+id/editText_food_price"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/spinner2"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="5dp"
+                                android:ems="10"
+                                android:text="@={menutwo.editTextFoodPrice}"
+                                android:hint="Food Price"
+                                android:inputType="numberDecimal"
+                                tools:fontFamily="@font/roboto" />
+
+
+                        <Button
+                                android:id="@+id/button2"
+                                android:layout_width="150dp"
+                                android:layout_height="45dp"
+                                android:layout_below="@+id/editText_food_price"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:onClick="@{()->menutwo.onAddFoodItmes()}"
+                                android:background="@drawable/bg_selector_primary"
+                                android:text="Add"
+                                android:textColor="#fff"
+                                tools:fontFamily="@font/roboto" />
+
+
+                        <RelativeLayout
+                                android:id="@+id/RelativeLayout2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:layout_below="@+id/button2">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerview_fooditems"
+                                    android:layout_width="match_parent"
+                                    android:nestedScrollingEnabled="false"
+                                    android:layout_height="match_parent" />
+                        </RelativeLayout>
+
+
+                        <Button
+                                android:id="@+id/button3"
+                                android:layout_width="150dp"
+                                android:layout_height="45dp"
+                                android:layout_below="@+id/RelativeLayout2"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@drawable/bg_selector_red"
+                                android:text="Complete"
+                                android:enabled="@{menutwo.completeButtonEnable}"
+                                android:onClick="@{()->menutwo.onAddFoodComplete()}"
+                                android:textColor="#fff"
+                                tools:fontFamily="@font/roboto" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+        <com.google.android.material.navigation.NavigationView
+                android:id="@+id/nav_view_menu_two"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:fitsSystemWindows="true"
+                app:headerLayout="@layout/nav_header_main"
+                app:menu="@menu/activity_main_drawer" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>
