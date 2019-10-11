@@ -272,7 +272,7 @@ class ActivityOutlet : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     private fun onLocationChanged(location: Location) {
         currentLocation = LatLng(location.latitude, location.longitude)
 
-
+        binding.outlet!!.setLocation(currentLocation!!.latitude,currentLocation!!.longitude)
 
         if (mapView_unapproved != null) {
             mapView_unapproved.onCreate(null)
@@ -298,6 +298,11 @@ class ActivityOutlet : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         if (currentLocation == null) {
             startLocationUpdates()
         } else {
+
+            binding.outlet!!.setLocation(currentLocation!!.latitude,currentLocation!!.longitude)
+
+
+
             mMap.addMarker(MarkerOptions().position(currentLocation!!).title("").draggable(true))
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 17f))
         }
@@ -411,144 +416,27 @@ class ActivityOutlet : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        println("ccccccccc : "+requestCode)
-
-        if (requestCode == REQUEST_CHECK_SETTINGS) {
-            if (resultCode == Activity.RESULT_OK) {
-                startLocationUpdates()
-            }else{
-                Toast.makeText(this, "Location Features no longer available", Toast.LENGTH_SHORT).show()
-            }
-        }else{
-
-           // if (resultCode == Activity.RESULT_OK) {
+        try {
+            if(requestCode == 102){
                 choosePhotoHelper.onActivityResult(requestCode, resultCode, data)
                 addOutletImages(data!!.data)
-           /* }else{
-                Toast.makeText(
-                    this,
-                    "Image not selected properly, Please try again",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }*/
+            }else{
+                if (resultCode == Activity.RESULT_OK) {
+                    startLocationUpdates()
+                }else{
+                    Toast.makeText(this, "Location Features no longer available", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }catch (ex : Exception){
+
+            Toast.makeText(this, "This option is not available at current settings", Toast.LENGTH_SHORT).show()
+
         }
 
 
 
 
-   /*     when (requestCode) {
-            REQUEST_CHECK_SETTINGS -> when (resultCode) {
-                Activity.RESULT_OK -> startLocationUpdates()
-                Activity.RESULT_CANCELED -> Toast.makeText(
-                    this,
-                    "Location Features no longer available",
-                    Toast.LENGTH_SHORT
-                ).show()
-                else -> {
-                }
-            }
-            PICK_IMAGE_REQUEST_LIB_CODE -> when (resultCode) {
-                Activity.RESULT_OK -> try {
-                    addOutletImages(data!!.data)
 
-
-                    choosePhotoHelper.onActivityResult(requestCode, resultCode, data)
-
-                } catch (e: Exception) {
-                    val alertDialogBuilder = AlertDialog.Builder(this)
-                    alertDialogBuilder.setMessage("Image not selected properly, Please try again$e")
-                    alertDialogBuilder.setPositiveButton(
-                        "OK",
-                        DialogInterface.OnClickListener { _, _ -> return@OnClickListener })
-                    alertDialogBuilder.show()
-                }
-                Activity.RESULT_CANCELED -> Toast.makeText(
-                    this,
-                    "Image not selected properly, Please try again",
-                    Toast.LENGTH_SHORT
-                ).show()
-                else -> {
-                }
-            }
-
-            TAKE_IMAGE_REQUEST_LIB_CODE -> when (resultCode) {
-                Activity.RESULT_OK -> try {
-                    //addOutletImages(data!!.data)
-
-
-                    choosePhotoHelper.onActivityResult(requestCode, resultCode, data)
-
-                } catch (e: Exception) {
-                    val alertDialogBuilder = AlertDialog.Builder(this)
-                    alertDialogBuilder.setMessage("Image not selected properly, Please try again$e")
-                    alertDialogBuilder.setPositiveButton(
-                        "OK",
-                        DialogInterface.OnClickListener { _, _ -> return@OnClickListener })
-                    alertDialogBuilder.show()
-                }
-                Activity.RESULT_CANCELED -> Toast.makeText(
-                    this,
-                    "Image not selected properly, Please try again",
-                    Toast.LENGTH_SHORT
-                ).show()
-                else -> {
-                }
-            }
-
-        }*/
-
-
-
-
-
-       /* try {
-
-            when (requestCode) {
-                REQUEST_CHECK_SETTINGS -> when (resultCode) {
-                    Activity.RESULT_OK -> startLocationUpdates()
-                    Activity.RESULT_CANCELED -> Toast.makeText(
-                        this,
-                        "Location Features no longer available",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    else -> {
-                    }
-                }
-                PICK_IMAGE_REQUEST -> when (resultCode) {
-                    Activity.RESULT_OK -> try {
-                        addOutletImages(data!!.data)
-
-
-                        Glide.with(this)
-                            .asBitmap()
-                            .load(data!!.data)
-                            .into(imageView3)
-
-                    } catch (e: Exception) {
-                        val alertDialogBuilder = AlertDialog.Builder(this)
-                        alertDialogBuilder.setMessage("Image not selected properly, Please try again$e")
-                        alertDialogBuilder.setPositiveButton(
-                            "OK",
-                            DialogInterface.OnClickListener { _, _ -> return@OnClickListener })
-                        alertDialogBuilder.show()
-                    }
-                    Activity.RESULT_CANCELED -> Toast.makeText(
-                        this,
-                        "Image not selected properly, Please try again",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    else -> {
-                    }
-                }
-
-            }
-        } catch (ex: java.lang.Exception) {
-            Toast.makeText(
-                this,
-                "Try again",
-                Toast.LENGTH_SHORT
-            ).show()
-        }*/
     }
 
 
@@ -582,6 +470,7 @@ class ActivityOutlet : AppCompatActivity(), NavigationView.OnNavigationItemSelec
             outletImage.name = file.name
 
             outletImageList.add(outletImage)
+            binding.outlet!!.setSelectedImages(outletImageList)
 
 
             addedOutletImagesAdaptor = AddedOutletImagesAdaptor(outletImageList, this)

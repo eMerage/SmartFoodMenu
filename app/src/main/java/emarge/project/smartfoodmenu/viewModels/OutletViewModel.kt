@@ -155,6 +155,9 @@ class OutletViewModel : ViewModel() {
             editTextPickupTime.value.isNullOrEmpty() -> outletAddingError.value = "Please fill the PickupTime"
             editTextserviceCharge.value.isNullOrEmpty() -> outletAddingError.value = "Please add the Service Charge"
             latitude.value == 0.0  -> outletAddingError.value = "Please refresh the location"
+            longitude.value == 0.0  -> outletAddingError.value = "Please refresh the location"
+            latitude.value == null -> outletAddingError.value = "Please refresh the location"
+            longitude.value == null -> outletAddingError.value = "Please refresh the location"
             else -> sendNewOutletToServer()
         }
 

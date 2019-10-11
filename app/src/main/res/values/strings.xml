@@ -35,10 +35,9 @@
         <item>Breakfast</item>
         <item>Lunch</item>
         <item>Dinner</item>
-        <item>Juice</item>
-        <item>Beverage</item>
-        <item>Dessert</item>
-        <item>Sweets</item>
+        <item>BR/LU/DI</item>
+        <item>L/D</item>
+
     </string-array>
 
 

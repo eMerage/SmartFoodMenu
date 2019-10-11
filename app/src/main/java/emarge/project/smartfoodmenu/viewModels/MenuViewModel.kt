@@ -128,10 +128,9 @@ class MenuViewModel : ViewModel() {
             "Breakfast" -> selectedMenuCatID.value = 1
             "Lunch" -> selectedMenuCatID.value = 2
             "Dinner" -> selectedMenuCatID.value = 3
-            "Juice" -> selectedMenuCatID.value = 4
-            "Beverage" -> selectedMenuCatID.value = 5
-            "Dessert" -> selectedMenuCatID.value = 6
-            "Sweets" -> selectedMenuCatID.value = 7
+            "BR/LU/DI" -> selectedMenuCatID.value = 1007
+            "L/D" -> selectedMenuCatID.value = 1008
+
         }
 
         getMenuTitles(selectedMenuCatID.value!!)
@@ -140,13 +139,11 @@ class MenuViewModel : ViewModel() {
     fun onItemSelectedMenuCategoryForMenuTitle(parent: AdapterView<*>, view: View, position: Int, id: Long) {
         var menucat : String = parent.getItemAtPosition(position).toString()
         when (menucat) {
-            "Breakfast" -> selectedMenuCatIDForMenuTitle.value = 1
-            "Lunch" -> selectedMenuCatIDForMenuTitle.value = 2
-            "Dinner" -> selectedMenuCatIDForMenuTitle.value = 3
-            "Juice" -> selectedMenuCatIDForMenuTitle.value = 4
-            "Beverage" -> selectedMenuCatIDForMenuTitle.value = 5
-            "Dessert" -> selectedMenuCatIDForMenuTitle.value = 6
-            "Sweets" -> selectedMenuCatIDForMenuTitle.value = 7
+            "Breakfast" -> selectedMenuCatID.value = 1
+            "Lunch" -> selectedMenuCatID.value = 2
+            "Dinner" -> selectedMenuCatID.value = 3
+            "BR/LU/DI" -> selectedMenuCatID.value = 1007
+            "L/D" -> selectedMenuCatID.value = 1008
         }
     }
 
