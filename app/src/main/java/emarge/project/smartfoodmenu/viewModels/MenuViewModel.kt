@@ -139,11 +139,11 @@ class MenuViewModel : ViewModel() {
     fun onItemSelectedMenuCategoryForMenuTitle(parent: AdapterView<*>, view: View, position: Int, id: Long) {
         var menucat : String = parent.getItemAtPosition(position).toString()
         when (menucat) {
-            "Breakfast" -> selectedMenuCatID.value = 1
-            "Lunch" -> selectedMenuCatID.value = 2
-            "Dinner" -> selectedMenuCatID.value = 3
-            "BR/LU/DI" -> selectedMenuCatID.value = 1007
-            "L/D" -> selectedMenuCatID.value = 1008
+            "Breakfast" -> selectedMenuCatIDForMenuTitle.value = 1
+            "Lunch" -> selectedMenuCatIDForMenuTitle.value = 2
+            "Dinner" -> selectedMenuCatIDForMenuTitle.value = 3
+            "BR/LU/DI" -> selectedMenuCatIDForMenuTitle.value = 1007
+            "L/D" -> selectedMenuCatIDForMenuTitle.value = 1008
         }
     }
 

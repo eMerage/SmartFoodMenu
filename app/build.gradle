@@ -12,8 +12,8 @@ android {
         applicationId "emarge.project.smartfoodmenu"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 9
-        versionName "1.0.9"
+        versionCode 12
+        versionName "1.0.12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -50,7 +50,7 @@ android {
             minifyEnabled true
             signingConfig signingConfigs.key
             buildConfigField "String", "API_TOKEN_ID", '\"5050\"'
-            buildConfigField "String", "API_BASE_URL", '\"http://mealtime.emerge.lk:7777/OnMeal_Production/api/\"'
+            buildConfigField "String", "API_BASE_URL", '\"http://mealtime.emerge.lk:7777/OnMeal_Production_Menu/api/\"'
         }
         debug {
             shrinkResources true
@@ -58,7 +58,7 @@ android {
             minifyEnabled true
             buildConfigField "String", "API_TOKEN_ID", '\"5050\"'
           //  buildConfigField "String", "API_BASE_URL", '\"http://mealtime.emerge.lk:7777/OnMeal_DEV/api/\"'
-            buildConfigField "String", "API_BASE_URL", '\"http://mealtime.emerge.lk:7777/OnMeal_DEV/api/\"'
+            buildConfigField "String", "API_BASE_URL", '\"http://mealtime.emerge.lk:7777/OnMeal_Production_Menu/api/\"'
 
 
         }
